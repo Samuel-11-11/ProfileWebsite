@@ -1,0 +1,183 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <me ta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar (No JS)</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Navigation Bar Styles */
+        nav {
+            background-color: #fd8803;
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .nav-list {
+            list-style-type: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-list li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-list li a:hover {
+            background-color: #34495e;
+        }
+
+        .nav-list li a.active {
+            background-color: #3498db;
+        }
+
+        /* Hamburger Menu (CSS-only) */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            position: relative;
+            z-index: 100;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-list {
+                position : fixed;
+                right: 0;
+                top: 0;
+                height: 100vh;
+                background-color: #2c3e50;
+                width: 70%;
+                max-width: 300px;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transform: translateX(100%);
+                transition: transform 0.5s ease;
+                padding: 2rem 0;
+            }
+
+            #menu-toggle:checked ~ .nav-list {
+                transform: translateX(0);
+            }
+
+            #menu-toggle:checked + .hamburger .line1 {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            #menu-toggle:checked + .hamburger .line2 {
+                opacity: 0;
+            }
+
+            #menu-toggle:checked + .hamburger .line3 {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .nav-list li {
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            }
+
+            #menu-toggle:checked ~ .nav-list li {
+                opacity: 1;
+            }
+        }
+
+        /* For very large screens */
+        @media (min-width: 1200px) {
+            .nav-container {
+                padding: 0 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Logo</a>
+            
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </label>
+            
+            <ul class="nav-list">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Hobbies</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>
+
+
+.nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: #333;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: 0.3s;
+                z-index: 1;
+            }
+            
+            #menu-toggle:checked ~ .nav-links {
+                right: 0;
+            } 
+        }
+    

@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No-JS Responsive Navbar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            padding-top: 60px; /* Space for fixed nav */
+        }
+        
+        /* Navigation Styles */
+        nav {
+            background: #2c3e50;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .logo {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        
+        /* Checkbox Hack for Mobile Menu */
+        #menu-toggle {
+            display: none;
+        }
+        
+        .menu-btn {
+            display: none;
+            cursor: pointer;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background: #34495e;
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                right: -100%;
+                width: 70%;
+                height: calc(100vh - 60px);
+                background: #2c3e50;
+                flex-direction: column;
+                align-items: center;
+                justify-content: start;
+                padding-top: 2rem;
+                transition: right 0.3s;
+            }
+            
+            #menu-toggle:checked ~ .nav-links {
+                right: 0;
+            }
+        }
+        
+        /* Page Sections */
+        section {
+            min-height: 100vh;
+            padding: 2rem;
+            scroll-margin-top: 60px; /* Prevent header overlap */
+        }
+        
+        #home { background: #ecf0f1; }
+        #about { background: #bdc3c7; }
+        #hobbies { background: #95a5a6; }
+        #contact { background: #7f8c8d; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">MySite</a>
+            
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-btn">☰</label>
+            
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#hobbies">Hobbies</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section id="home">
+        <h1>Welcome Home</h1>
+         <p><b>Coding & Tech Projects</b>- Enjoy building simulations and contributing to open-source Projects-
+            <b>Sports</b> Like watching football 
+            <b>Music</b> Enjoy listening to music for relaxation 
+        </b> </p>
+    </section>
+    
+    <section id="about">
+        <h1>About Me</h1>
+        <p>This section will appear when you click "About" in the navigation.</p>
+    </section>
+    
+    <section id="hobbies">
+        <h1>My Hobbies</h1>
+        <p>This section will appear when you click "Hobbies" in the navigation.</p>
+    </section>
+    
+    <section id="contact">
+        <h1>Contact Me</h1>
+        <p>This section will appear when you click "Contact" in the navigation.</p>
+    </section>
+</body>
+</html>

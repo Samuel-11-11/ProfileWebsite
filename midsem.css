@@ -1,0 +1,25 @@
+
+body {
+    background-color: antiquewhite;
+    font-family: 'Courier New', Courier, monospace;
+    
+}
+
+.sam {
+    text-align: center;
+    font-weight: bold;
+}
+
+.man{
+    text-align: center;
+    padding: 10px;
+}
+
+.san{
+    text-align: center;
+    padding: 10px;
+}
+.main {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
